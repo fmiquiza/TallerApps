@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html ng-app="Principal">
+<head>
+    
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap/css/bootstrap-theme.min.css">
+<title>App de lista de contactos</title>
+</head>
+<body>
+<div class="container" ng-controller="Control">
+<h1>App de Lista de contactos</h1>
+<table class="table">
+<thead>
+<tr>
+<th>Name</th><th>Email</th>
+<th>Numero</th><th>Acción</th><th>&nbsp;</th>
+</tr>    
+</thead>
+<tbody>
+<tr>
+<th><input class="form-control" ng-model="contacto.nombre" </th>
+<th><input class="form-control" ng-model="contacto.email" </th>
+<th><input class="form-control" ng-model="contacto.numero" </th>
+<th><button class="btn btn-primary" ng-click="AddContacto()">Añadir Contacto</button></th>
+<th><button class="btn btn-info" ng-click="Actualizar()">Actualizar</button></th>
+</tr>
+<tr ng-repeat="contacto in ListCont">
+    <th>{{contacto.nombre}}</th>
+    <th>{{contacto.email}}</th>
+   <th>{{contacto.numero}}</th>
+    <th><button class="btn btn-danger" ng-click="Eliminar(contacto._id)">Eliminar</button></th>
+    <th><button class="btn btn-warning" ng-click="editar(contacto._id)">Editar</button></th>
+</tr>    
+</tbody>
+</table>
+</div>
+<script src="js/angular.min.js"></script>
+<script src="Controllers/controller.js"></script>
+</body>
+
+</html>
