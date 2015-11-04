@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Contactos</title>
+    
+    <!-- core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/prettyPhoto.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    
+
+     <link href="css/datepicker.css"rel="stylesheet">
+    <link href="css/font-awesome.css"rel="stylesheet">
+    <link href="css/font-awesome.min.css"rel="stylesheet">
+    <link href="css/responsive.css"rel="stylesheet">
+    <link href="css/sticky-footer-navbar.css"rel="stylesheet">
+    <link href="css/style.css"rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->       
+    <link rel="shortcut icon" href="images/ico/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="images/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+</head><!--/head-->
+
+<body>
+
+   <header id="header">
+        <div class="top-bar">
+            <div class="container">
+
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content login-modal">
+                <div class="modal-header login-modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center" id="loginModalLabel"> AUTENTICACION DE USUARIO</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center">
+                        <div role="tabpanel" class="login-tab">
+                            <!-- Nav tabs -->
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a id="signin-taba" href="#home" aria-controls="home" role="tab" data-toggle="tab">Ingresar</a></li>
+                               
+                                <li role="presentation"><a id="forgetpass-taba" href="#forget_password" aria-controls="forget_password" role="tab" data-toggle="tab">¿Se olvido la contraseña?</a></li>
+                            </ul>
+                        
+                            <!-- Tab panes -->
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active text-center" id="home">
+                                    &nbsp;&nbsp;
+                                    <span id="login_fail" class="response_error" style="display: none;">el login fallo, vuelva a intentarlo</span>
+                                    <div class="clearfix"></div>
+                                    <form>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                <input type="text" class="form-control" id="login_username" placeholder="Username">
+                                            </div>
+                                            <span class="help-block has-error" id="email-error"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-lock"></i></div>
+                                                <input type="password" class="form-control" id="password" placeholder="Password">
+                                            </div>
+                                            <span class="help-block has-error" id="password-error"></span>
+                                        </div>
+                                        <button type="button" id="login_btn" class="btn btn-block bt-login" data-loading-text="Signing In...." onClick=" window.location.href='admin/index.html' ">INGRESAR
+                                        </button>
+                                        <div class="clearfix"></div>
+                                        <div class="login-modal-footer">
+                                            <div class="row">
+                                                <div class="col-xs-8 col-sm-8 col-md-8">
+                                                    <i class="fa fa-lock"></i>
+                                                    <a href="javascript:;" class="forgetpass-tab"> Forgot password? </a>
+                                                
+                                                </div>
+                                                
+                                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                                    <i class="fa fa-check"></i>
+                                                    <a href="javascript:;" class="signup-tab"> Sign Up </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="profile">
+                                    &nbsp;&nbsp;
+                                    <span id="registration_fail" class="response_error" style="display: none;">Registration failed, please try again.</span>
+                                    <div class="clearfix"></div>
+                                    <form>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                <input type="text" class="form-control" id="username" placeholder="Username">
+                                            </div>
+                                            <span class="help-block has-error" data-error='0' id="username-error"></span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                                                <input type="text" class="form-control" id="remail" placeholder="Email">
+                                            </div>
+                                            <span class="help-block has-error" data-error='0' id="remail-error"></span>
+                                        </div>
+                                        <button type="button" id="register_btn" class="btn btn-block bt-login" data-loading-text="Registering....">Register</button>
+                                        <div class="clearfix"></div>
+                                        <div class="login-modal-footer">
+                                            <div class="row">
+                                                <div class="col-xs-8 col-sm-8 col-md-8">
+                                                    <i class="fa fa-lock"></i>
+                                                    <a href="javascript:;" class="forgetpass-tab"> Forgot password? </a>
+                                                
+                                                </div>
+                                                
+                                                <div class="col-xs-4 col-sm-4 col-md-4">
+                                                    <i class="fa fa-check"></i>
+                                                    <a href="javascript:;" class="signin-tab"> Sign In </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div role="tabpanel" class="tab-pane text-center" id="forget_password">
+                                    &nbsp;&nbsp;
+                                    <span id="reset_fail" class="response_error" style="display: none;"></span>
+                                    <div class="clearfix"></div>
+                                    <form>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                                <input type="text" class="form-control" id="femail" placeholder="Email">
+                                            </div>
+                                            <span class="help-block has-error" data-error='0' id="femail-error"></span>
+                                        </div>
+                                        
+                                        <button type="button" id="reset_btn" class="btn btn-block bt-login" data-loading-text="Please wait....">Forget Password</button>
+                                        <div class="clearfix"></div>
+                                        <div class="login-modal-footer">
+                                            <div class="row">
+                                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                                    <i class="fa fa-lock"></i>
+                                                    <a href="javascript:;" class="signin-tab"> Sign In </a>
+                                                
+                                                </div>
+                                                
+                                                <div class="col-xs-6 col-sm-6 col-md-6">
+                                                    <i class="fa fa-check"></i>
+                                                    <a href="javascript:;" class="signup-tab"> Sign Up </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+       </div>
+    </div>
+
+
+
+                <div class="row">
+                    <div class="col-sm-6 col-xs-4">
+                        <div class="top-number"><p>
+                        
+<a class="btn btn-launch" href="javascript:;" data-toggle="modal" data-target="#loginModal">INICIAR SESION</a>
+                        </p></div>
+                    </div>
+                    <div class="col-sm-6 col-xs-8">
+                       <div class="social">
+                            <ul class="social-share">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li> 
+                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="#"><i class="fa fa-skype"></i></a></li>
+                            </ul>
+                            <div class="search">
+                                <form role="form">
+                                    <input type="text" class="search-form" autocomplete="off" placeholder="Search">
+                                    <i class="fa fa-search"></i>
+                                </form>
+                           </div>
+                       </div>
+                    </div>
+                </div>
+            </div><!--/.container-->
+        </div><!--/.top-bar-->
+
+        <nav class="navbar navbar-inverse" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+                </div>
+				
+                <div class="collapse navbar-collapse navbar-right">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html">INICIO</a></li>
+                        <li><a href="nosotros.html">ACERCA DE</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">D. DEPORTIVAS <i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">FUTBOL</a></li>
+                                <li><a href="#">BASQUET</a></li>
+                                <li><a href="#">WALLY</a></li>
+                                
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">NOTICIAS<i class="fa fa-angle-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="eventos.html">EVENTOS</a></li>
+                                <li><a href="#">ACTIVIDADES</a></li>
+                                <li><a href="#">COMUNICADOS</a></li>
+                                
+                            </ul>
+                        </li>
+
+                        <!--<li><a href="blog.html">NOTICIAS</a></li>-->
+                        <li><a href="galeria.html">GALERIA</a></li>
+                        
+                        <li><a href="servicios.html">C. DEPORTIVOS</a></li> 
+                        <li><a href="contactos.html">CONTACTOS</a></li>                        
+                    </ul>
+                </div>
+            </div><!--/.container-->
+        </nav><!--/nav-->
+		
+    </header><!--/header-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+
+
+    <section id="contact-page">
+        <div class="container">
+            <div class="center">        
+                <h2>Contáctanos</h2>
+                <p class="lead"></p>
+            </div> 
+            <div class="row contact-wrap"> 
+                <div class="status alert alert-success" style="display: none"></div>
+                <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label>Nombre *</label>
+                            <input type="text" name="name" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>E-mail *</label>
+                            <input type="email" name="email" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Celular</label>
+                            <input type="number" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Nombre de su compañia</label>
+                            <input type="text" class="form-control">
+                        </div>                        
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" name="subject" class="form-control" required="required">
+                        </div>
+                        <div class="form-group">
+                            <label>Mensaje *</label>
+                            <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
+                        </div>                        
+                        <div class="form-group">
+                            <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Enviar</button>
+                        </div>
+                    </div>
+                    <div class="col-md-1">
+                    </div>
+                    <div class="col-md-7">
+                    <div class="well">
+                    <h2>Foro</h2>
+                       <div class=" alert alert-success">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                        </div>
+                    </div>
+                    </div>
+                </form> 
+            </div><!--/.row-->
+        </div><!--/.container-->
+    </section><!--/#contact-page-->
+
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+            
+  <section id="contact-info">
+        <div class="center">                
+            <br /><br />
+        </div>
+        <div class="gmap-area">
+            <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="col-md-6">
+                        <div class="gmap">
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1963.3245096765327!2d-66.31538713459564!3d-17.386487855235483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2sbo!4v1445823879517" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <ul class="">
+                            <li class="col-md-12">
+                                <address>
+                                    <h5>Oficina Central</h5>
+                                    <p>Av Simon I. Patiño <br>
+                                    N° 123</p>
+                                    <p>Telefono <br>
+                                    E-mail:deportes@fulldeporte.com</p>
+                                </address>
+                            </li>
+
+
+                            <li class="col-md-12">
+                                <address>
+                                    <h5>Oficina La Paz</h5>
+                                    <p>Sopocachi Calle Fernando Guachalla<br>
+                                    N° 434</p>
+                                    <p>Telefono:67676767 <br>
+                                    E-mail:deportes@fulldeporte.com</p>
+                                </address>
+                            </li>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </section>  <!--/gmap_area -->
+
+        </div>
+    </div>
+</div>
+
+<section id="bottom">
+        <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>ENLACES RELACIONADOS</h3>
+                        <ul>
+                            <li><a href="#">Sedede</a></li>
+                            <li><a href="#">Deporte Total</a></li>
+                            <li><a href="#">Ministerio de Deportes</a></li>
+                            
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>CONTACTENOS</h3>
+                        <ul>
+                            <li><a href="#">77747443-44442323</a></li>
+                            <li><a href="#">Av. Simon I. Patiño</a></li>
+                            <li><a href="#">Vinto-Cochabamba</a></li>
+                            
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>INTERESES</h3>
+                        <ul>
+                            <li><a href="#">Diseños</a></li>
+                            <li><a href="#">Actividades</a></li>
+                            <li><a href="#">Asesorias</a></li>
+                            <li><a href="#">Enlaces</a></li>
+                            <li><a href="#">Marketing</a></li>
+                         
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>Patrocinadores</h3>
+                        <ul>
+                            <li><a href="#">Gobierno Municipal de Cochabamba</a></li>
+                            <li><a href="#">Gobierno Municipal de Cochabamba</a></li>
+                            <li><a href="#">Gobierno Municipal de Cochabamba</a></li>
+                            <li><a href="#">Gobierno Municipal de Cochabamba</a></li>
+                            
+                        </ul>
+                    </div>    
+                </div><!--/.col-md-3-->
+            </div>
+        </div>
+    </section><!--/#bottom-->
+
+     <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2015 <a target="_blank" href="http://fulldeportes.com" title="Deportes"></a>. Derechos Reservados
+                </div>
+                <div class="col-sm-6">
+                    <ul class="pull-right">
+                        <li><a href="index.html">Inicio</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer><!--/#footer-->
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/wow.min.js"></script>
+</body>
+</html>

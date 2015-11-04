@@ -11,7 +11,7 @@ app.use(express.static(__dirname+"/publico"))
 app.use(bodyParser.json());
 
 app.get('/contactlist', function(req,res){
-console.log("Recibido el metodo de Mostrar")
+console.log("Resivido el metodo de Mostrar")
 
 db.ListContacto.find(function (err,docs){
     console.log(docs);
